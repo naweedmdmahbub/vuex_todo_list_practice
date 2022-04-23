@@ -30,6 +30,9 @@ export default new Vuex.Store({
     },
     DELETE_TODO(state, index){
       state.todos.splice(index, 1);
+    },
+    TOGGLE_TODO(state, todoItem){
+      todoItem.completed = !todoItem.completed
     }
   },
   
@@ -39,6 +42,9 @@ export default new Vuex.Store({
     },
     deleteTodo({commit}, index){
       commit('DELETE_TODO', index);
+    },
+    toggleTodo({commit}, todoItem){
+      commit('TOGGLE_TODO', todoItem);
     }
   },
 });

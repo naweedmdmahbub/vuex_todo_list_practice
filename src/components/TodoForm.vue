@@ -1,6 +1,5 @@
 <template>
   <div class="">
-    <div>Todo Form</div>
     <input type="text" v-model="todo">
     <button class="btn btn-primary" @click="newTodo">Submit</button>
   </div>
