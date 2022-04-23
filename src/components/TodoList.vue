@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <Todo />
+    <Todo v-for="(todo, index) in $store.state.todos" :key="index" :todo="todo" />
   </div>
 </template>
 
