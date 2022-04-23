@@ -22,10 +22,23 @@ export default new Vuex.Store({
   },
 
   mutations: {
-
+    ADD_NEW_TODO(state, todoItem){
+      state.todos.push({
+        title: todoItem,
+        completed: false
+      })
+    },
+    DELETE_TODO(state, index){
+      state.todos.splice(index, 1);
+    }
   },
   
   actions: {
-
+    addNewTodo({commit}, todoItem){
+      commit('ADD_NEW_TODO', todoItem);
+    },
+    deleteTodo({commit}, index){
+      commit('DELETE_TODO', index);
+    }
   },
 });
