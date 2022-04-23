@@ -2,7 +2,7 @@
   <div class="">
     <div>
       <span :class="{completed: todo.completed}" @click="toggleTodoStatus">{{ todo.title }}</span> 
-      <button class="btn btn-danger" @click="deleteTodo" style="padding: 5px">Delete</button>
+      <button class="btn btn-danger" @click="deleteTodo">Delete</button>
     </div>
   </div>
 </template>
