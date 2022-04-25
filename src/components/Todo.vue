@@ -1,13 +1,14 @@
 <template>
   <div class="">
     <div>
-      <span :class="{completed: todo.completed}" @click="toggleTodoStatus">{{ todo.title }}</span> 
-      <button class="btn btn-danger" @click="deleteTodo">Delete</button>
+      <span :class="{completed: todo.completed}" @click="toggleTodoStatus(todo)">{{ todo.title }}</span> 
+      <button class="btn btn-danger" @click="deleteTodo($vnode.key)">Delete</button>
     </div>
   </div>
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 export default {
   props: ['todo'],
   data(){
@@ -16,13 +17,10 @@ export default {
     }
   },
   methods: {
-    deleteTodo(){
-      this.index = this.$vnode.key;
-      this.$store.dispatch('deleteTodo', this.index);
-    },
-    toggleTodoStatus(){
-      this.$store.dispatch('toggleTodo', this.todo);
-    }
+    ...mapActions({
+      deleteTodo: 'deleteTodo',
+      toggleTodoStatus: 'toggleTodo'
+    }),
   }
 }
 </script>
